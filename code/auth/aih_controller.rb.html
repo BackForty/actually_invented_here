@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>~/Desktop/Actually Invented Here/code/auth/aih_controller.rb.html</title>
+<meta name="Generator" content="Vim/7.3">
+<meta name="plugin-version" content="vim7.3_v6">
+<meta name="syntax" content="ruby">
+<meta name="settings" content="use_css,number_lines">
+<style type="text/css">
+<!--
+pre { font-family: monospace; color: #d0d0d0; background-color: #121212; }
+body { font-family: monospace; color: #d0d0d0; background-color: #121212; }
+.lnr { color: #bcbcbc; background-color: #1c1c1c; }
+.Constant { color: #af5fff; font-weight: bold; }
+.Conditional { color: #d7005f; font-weight: bold; }
+.Function { color: #87ff00; }
+.Type { color: #5fd7ff; }
+.Define { color: #5fd7ff; }
+-->
+</style>
+</head>
+<body>
+<pre>
+<span class="lnr">1 </span><span class="Define">class</span> <span class="Type">SessionsController</span> &lt; <span class="Type">ApplicationController</span>
+<span class="lnr">2 </span>  <span class="Define">def</span> <span class="Function">create</span>
+<span class="lnr">3 </span>    <span class="Conditional">if</span> user = subdomain.users.authenticate(params[<span class="Constant">:email</span>], params[<span class="Constant">:password</span>])
+<span class="lnr">4 </span>      session[<span class="Constant">:user_token</span>] = user.generate_token
+<span class="lnr">5 </span>    <span class="Conditional">end</span>
+<span class="lnr">6 </span>  <span class="Define">end</span>
+<span class="lnr">7 </span><span class="Define">end</span>
+</pre>
+</body>
+</html>

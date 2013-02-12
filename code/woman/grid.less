@@ -1,0 +1,29 @@
+@columns: 12;
+
+.column-x(@index, @width) when (@index < 13) {
+  @gutter: @width / 4;
+
+  (~".column-@{index}") {
+    float:left;
+    margin-left:@gutter;
+    margin-right:@gutter;
+    width:((@index * @width) - @gutter * 2);
+}
+
+.column-x(@index + 1, @width);
+}
+
+.column-x(13, @width) {}
+
+.grid(@width) {
+  @column: @width / @columns;
+  .column-x(1, @column);
+}
+
+// Standard 960px grid
+.grid(960px);
+
+// TABLET
+@media only screen and (min-width:768px) and (max-width:959px) {
+  .grid(768px);
+}

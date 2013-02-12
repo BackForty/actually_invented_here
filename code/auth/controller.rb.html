@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>~/Desktop/Actually Invented Here/code/auth/controller.rb.html</title>
+<meta name="Generator" content="Vim/7.3">
+<meta name="plugin-version" content="vim7.3_v6">
+<meta name="syntax" content="ruby">
+<meta name="settings" content="use_css,number_lines">
+<style type="text/css">
+<!--
+pre { font-family: monospace; color: #d0d0d0; background-color: #121212; }
+body { font-family: monospace; color: #d0d0d0; background-color: #121212; }
+.lnr { color: #bcbcbc; background-color: #1c1c1c; }
+.Number { color: #af5fff; }
+.Operator { color: #d7005f; }
+.Conditional { color: #d7005f; font-weight: bold; }
+.Identifier { color: #ff8700; font-weight: bold; }
+.Function { color: #87ff00; }
+.Statement { color: #d7005f; font-weight: bold; }
+.Constant { color: #af5fff; font-weight: bold; }
+.Type { color: #5fd7ff; }
+.Define { color: #5fd7ff; }
+-->
+</style>
+</head>
+<body>
+<pre>
+<span class="lnr"> 1 </span><span class="Define">class</span> <span class="Type">ApplicationController</span> &lt; <span class="Type">ActionController</span>::<span class="Type">Base</span>
+<span class="lnr"> 2 </span>  before_filter <span class="Constant">:set_current_subdomain</span>
+<span class="lnr"> 3 </span>
+<span class="lnr"> 4 </span>  <span class="Statement">private</span>
+<span class="lnr"> 5 </span>  <span class="Define">def</span> <span class="Function">current_subdomain</span>
+<span class="lnr"> 6 </span>    <span class="Statement">return</span> <span class="Identifier">@subdomain</span> <span class="Conditional">if</span> <span class="Operator">defined?</span> <span class="Identifier">@subdomain</span>
+<span class="lnr"> 7 </span>    <span class="Identifier">@subdomain</span> = <span class="Type">Subdomain</span>.find_by_name(request.subdomain)
+<span class="lnr"> 8 </span>  <span class="Define">end</span>
+<span class="lnr"> 9 </span>  helper_method <span class="Constant">:current_subdomain</span>
+<span class="lnr">10 </span>
+<span class="lnr">11 </span>  <span class="Define">def</span> <span class="Function">set_current_subdomain</span>
+<span class="lnr">12 </span>    <span class="Conditional">unless</span> <span class="Type">Thread</span>.current[<span class="Constant">:subdomain</span>] = current_subdomain
+<span class="lnr">13 </span>      deny!(<span class="Number">404</span>)
+<span class="lnr">14 </span>    <span class="Conditional">end</span>
+<span class="lnr">15 </span>  <span class="Define">end</span>
+<span class="lnr">16 </span><span class="Define">end</span>
+</pre>
+</body>
+</html>

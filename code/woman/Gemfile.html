@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>~/Desktop/Actually Invented Here/code/woman/Gemfile.html</title>
+<meta name="Generator" content="Vim/7.3">
+<meta name="plugin-version" content="vim7.3_v6">
+<meta name="syntax" content="ruby">
+<meta name="settings" content="use_css,number_lines">
+<style type="text/css">
+<!--
+pre { font-family: monospace; color: #d0d0d0; background-color: #121212; }
+body { font-family: monospace; color: #d0d0d0; background-color: #121212; }
+.lnr { color: #bcbcbc; background-color: #1c1c1c; }
+.Boolean { color: #af5fff; }
+.Statement { color: #d7005f; font-weight: bold; }
+.String { color: #afaf87; }
+.Delimiter { color: #626262; }
+.Constant { color: #af5fff; font-weight: bold; }
+.Function { color: #87ff00; }
+-->
+</style>
+</head>
+<body>
+<pre>
+<span class="lnr"> 1 </span><span class="Function">source</span> <span class="Constant">:rubygems</span>
+<span class="lnr"> 2 </span>
+<span class="lnr"> 3 </span><span class="Function">gem</span> <span class="Delimiter">'</span><span class="String">rails</span><span class="Delimiter">'</span>, <span class="Delimiter">'</span><span class="String">&gt;= 3.2.11</span><span class="Delimiter">'</span>
+<span class="lnr"> 4 </span><span class="Function">gem</span> <span class="Delimiter">'</span><span class="String">pg</span><span class="Delimiter">'</span>
+<span class="lnr"> 5 </span>
+<span class="lnr"> 6 </span><span class="Function">gem</span> <span class="Delimiter">'</span><span class="String">active_shipping</span><span class="Delimiter">'</span>
+<span class="lnr"> 7 </span><span class="Function">gem</span> <span class="Delimiter">'</span><span class="String">addressable</span><span class="Delimiter">'</span>
+<span class="lnr"> 8 </span><span class="Function">gem</span> <span class="Delimiter">'</span><span class="String">bodega</span><span class="Delimiter">'</span>, <span class="Delimiter">'</span><span class="String">&gt;= 0.4.8</span><span class="Delimiter">'</span>, <span class="Constant">git</span>: <span class="Delimiter">'</span><span class="String">https://github.com/flipsasser/bodega.git</span><span class="Delimiter">'</span>
+<span class="lnr"> 9 </span><span class="Function">gem</span> <span class="Delimiter">'</span><span class="String">carrierwave</span><span class="Delimiter">'</span>, <span class="Delimiter">'</span><span class="String">0.7.1</span><span class="Delimiter">'</span>
+<span class="lnr">10 </span><span class="Function">gem</span> <span class="Delimiter">'</span><span class="String">rmagick</span><span class="Delimiter">'</span>
+<span class="lnr">11 </span><span class="Function">gem</span> <span class="Delimiter">'</span><span class="String">numbers_and_words</span><span class="Delimiter">'</span>
+<span class="lnr">12 </span><span class="Function">gem</span> <span class="Delimiter">'</span><span class="String">paypal-express</span><span class="Delimiter">'</span>
+<span class="lnr">13 </span>
+<span class="lnr">14 </span><span class="Function">group</span> <span class="Constant">:assets</span> <span class="Statement">do</span>
+<span class="lnr">15 </span>  <span class="Function">gem</span> <span class="Delimiter">'</span><span class="String">less-rails</span><span class="Delimiter">'</span>
+<span class="lnr">16 </span>  <span class="Function">gem</span> <span class="Delimiter">'</span><span class="String">therubyracer</span><span class="Delimiter">'</span>, <span class="Delimiter">'</span><span class="String">0.10.2</span><span class="Delimiter">'</span>, <span class="Constant">platforms</span>: <span class="Constant">:ruby</span>
+<span class="lnr">17 </span>  <span class="Function">gem</span> <span class="Delimiter">'</span><span class="String">uglifier</span><span class="Delimiter">'</span>, <span class="Delimiter">'</span><span class="String">&gt;= 1.0.3</span><span class="Delimiter">'</span>
+<span class="lnr">18 </span><span class="Statement">end</span>
+<span class="lnr">19 </span>
+<span class="lnr">20 </span><span class="Function">group</span> <span class="Constant">:production</span> <span class="Statement">do</span>
+<span class="lnr">21 </span>  <span class="Function">gem</span> <span class="Delimiter">'</span><span class="String">fog</span><span class="Delimiter">'</span>, <span class="Delimiter">'</span><span class="String">~&gt; 1.3.1</span><span class="Delimiter">'</span>
+<span class="lnr">22 </span><span class="Statement">end</span>
+<span class="lnr">23 </span>
+<span class="lnr">24 </span><span class="Function">group</span> <span class="Constant">:development</span>, <span class="Constant">:test</span> <span class="Statement">do</span>
+<span class="lnr">25 </span>  <span class="Function">gem</span> <span class="Delimiter">'</span><span class="String">launchy</span><span class="Delimiter">'</span>, <span class="Constant">require</span>: <span class="Boolean">false</span>
+<span class="lnr">26 </span>  <span class="Function">gem</span> <span class="Delimiter">'</span><span class="String">pry</span><span class="Delimiter">'</span>, <span class="Constant">require</span>: <span class="Boolean">false</span>
+<span class="lnr">27 </span><span class="Statement">end</span>
+<span class="lnr">28 </span>
+<span class="lnr">29 </span><span class="Function">group</span> <span class="Constant">:test</span> <span class="Statement">do</span>
+<span class="lnr">30 </span>  <span class="Function">gem</span> <span class="Delimiter">'</span><span class="String">cucumber-rails</span><span class="Delimiter">'</span>, <span class="Constant">require</span>: <span class="Boolean">false</span>
+<span class="lnr">31 </span>  <span class="Function">gem</span> <span class="Delimiter">'</span><span class="String">capybara-webkit</span><span class="Delimiter">'</span>, <span class="Constant">require</span>: <span class="Boolean">false</span>
+<span class="lnr">32 </span>  <span class="Function">gem</span> <span class="Delimiter">'</span><span class="String">database_cleaner</span><span class="Delimiter">'</span>, <span class="Constant">require</span>: <span class="Boolean">false</span>
+<span class="lnr">33 </span>  <span class="Function">gem</span> <span class="Delimiter">'</span><span class="String">factory_girl</span><span class="Delimiter">'</span>, <span class="Constant">require</span>: <span class="Boolean">false</span>
+<span class="lnr">34 </span>  <span class="Function">gem</span> <span class="Delimiter">'</span><span class="String">faker</span><span class="Delimiter">'</span>, <span class="Constant">require</span>: <span class="Boolean">false</span>
+<span class="lnr">35 </span>  <span class="Function">gem</span> <span class="Delimiter">'</span><span class="String">rspec-rails</span><span class="Delimiter">'</span>, <span class="Delimiter">'</span><span class="String">&gt;= 2.6</span><span class="Delimiter">'</span>, <span class="Constant">require</span>: <span class="Boolean">false</span>
+<span class="lnr">36 </span><span class="Statement">end</span>
+</pre>
+</body>
+</html>

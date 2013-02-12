@@ -1,0 +1,37 @@
+#!/usr/bin/env ruby
+lockfile = File.read(ARGV.first || 'Gemfile.lock')
+
+dependencies = {}
+
+sections = lockfile.split("\n\n")
+spec_sections = sections.select{|section| section =~ /^\s*specs:$/ }
+specs = spec_sections.map{|section| section.gsub(/.+specs:/mi, '').split("\n").map(&:strip).reject(&:empty?) }
+
+specs.flatten.each do |spec|
+  if spec =~ /\(/
+    gem = spec.match(/(.+) \(/)[1]
+  end
+  gem ||= spec
+  gem_dependencies = dependencies[gem] ||= []
+  if spec =~ /.+ \((.+)\)/
+    versions = $1.split(",").map {|version| version.strip.gsub(/^= /, '') }
+  else
+    versions = [gem]
+  end
+  versions.each do |version|
+    gem_dependencies.push(version) unless gem_dependencies.include?(version)
+  end
+end
+
+dependency_count = dependencies.size
+version_count = dependencies.values.flatten.size
+average_versions = (version_count / dependency_count.to_f).round(3)
+gem_count = sections.find{|section| section =~ /^DEPENDENCIES/ }.split("\n").size - 1
+dependencies_per_gem = ((dependency_count - gem_count) / gem_count.to_f).round(3)
+
+puts "\033[34m#{gem_count}\033[00m gems explicitly required"
+puts "\033[32m#{dependency_count}\033[00m total libraries"
+puts "\033[33m#{dependencies_per_gem}\033[00m dependencies per gem"
+puts "\033[35m#{version_count}\033[00m dependency instructions"
+puts "\033[31m#{average_versions}\033[00m dependency instructions per library"
+

@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>~/Desktop/Actually Invented Here/code/woman/grid.less.html</title>
+<meta name="Generator" content="Vim/7.3">
+<meta name="plugin-version" content="vim7.3_v6">
+<meta name="syntax" content="css">
+<meta name="settings" content="use_css,number_lines">
+<style type="text/css">
+<!--
+pre { font-family: monospace; color: #d0d0d0; background-color: #121212; }
+body { font-family: monospace; color: #d0d0d0; background-color: #121212; }
+.lnr { color: #bcbcbc; background-color: #1c1c1c; }
+.Comment { color: #5f5f5f; }
+.StorageClass { color: #ff8700; }
+.Constant { color: #af5fff; font-weight: bold; }
+.String { color: #afaf87; }
+.Keyword { color: #d7005f; font-weight: bold; }
+.Function { color: #87ff00; }
+.Number { color: #af5fff; }
+.Identifier { color: #ff8700; font-weight: bold; }
+-->
+</style>
+</head>
+<body>
+<pre>
+<span class="lnr"> 1 </span><span class="Identifier">@columns</span>: <span class="Number">12</span>;
+<span class="lnr"> 2 </span>
+<span class="lnr"> 3 </span><span class="Function">.column-x</span>(<span class="Identifier">@index</span>,<span class="Function"> </span><span class="Identifier">@width</span>)<span class="Function"> </span><span class="Keyword">when</span><span class="Function"> </span>(<span class="Identifier">@index</span><span class="Function"> &lt; </span><span class="Number">13</span>)<span class="Function"> </span><span class="Function">{</span>
+<span class="lnr"> 4 </span>  <span class="Identifier">@gutter</span>: <span class="Identifier">@width</span> / <span class="Number">4</span>;
+<span class="lnr"> 5 </span>
+<span class="lnr"> 6 </span>  (~<span class="String">&quot;.column-</span><span class="Constant">@{</span>index<span class="Constant">}</span><span class="String">&quot;</span>) <span class="Function">{</span>
+<span class="lnr"> 7 </span>    <span class="StorageClass">float</span>:left;
+<span class="lnr"> 8 </span>    <span class="StorageClass">margin-left</span>:<span class="Identifier">@gutter</span>;
+<span class="lnr"> 9 </span>    <span class="StorageClass">margin-right</span>:<span class="Identifier">@gutter</span>;
+<span class="lnr">10 </span>    <span class="StorageClass">width</span>:((<span class="Identifier">@index</span> * <span class="Identifier">@width</span>) - <span class="Identifier">@gutter</span> * <span class="Number">2</span>);
+<span class="lnr">11 </span><span class="Function">}</span>
+<span class="lnr">12 </span>
+<span class="lnr">13 </span><span class="Function">.column-x</span>(<span class="Identifier">@index</span><span class="Function"> + </span><span class="Number">1</span>,<span class="Function"> </span><span class="Identifier">@width</span>);
+<span class="lnr">14 </span><span class="Function">}</span>
+<span class="lnr">15 </span>
+<span class="lnr">16 </span><span class="Function">.column-x</span>(<span class="Number">13</span>,<span class="Function"> </span><span class="Identifier">@width</span>)<span class="Function"> </span><span class="Function">{}</span>
+<span class="lnr">17 </span>
+<span class="lnr">18 </span><span class="Function">.grid</span>(<span class="Identifier">@width</span>)<span class="Function"> </span><span class="Function">{</span>
+<span class="lnr">19 </span>  <span class="Identifier">@column</span>: <span class="Identifier">@width</span> / <span class="Identifier">@columns</span>;
+<span class="lnr">20 </span>  <span class="Function">.column-x</span>(<span class="Number">1</span>,<span class="Function"> </span><span class="Identifier">@column</span>);
+<span class="lnr">21 </span><span class="Function">}</span>
+<span class="lnr">22 </span>
+<span class="lnr">23 </span><span class="Comment">// Standard 960px grid</span>
+<span class="lnr">24 </span><span class="Function">.grid</span>(<span class="Number">960px</span>);
+<span class="lnr">25 </span>
+<span class="lnr">26 </span><span class="Comment">// TABLET</span>
+<span class="lnr">27 </span><span class="Identifier">@media</span> only screen and (min-width:768px) and (max-width:959px) <span class="Function">{</span>
+<span class="lnr">28 </span>  <span class="Function">.grid</span>(<span class="Number">768px</span>);
+<span class="lnr">29 </span><span class="Function">}</span>
+</pre>
+</body>
+</html>
